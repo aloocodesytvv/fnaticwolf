@@ -2,6 +2,7 @@ import type { FormSubmittedEvent } from '@netlify/functions';
 
 type EmbedField = { name: string; value: string; inline: boolean };
 type ApplicationEmbed = {
+  author: { name: string };
   title: string;
   description: string;
   color: number;
@@ -14,7 +15,7 @@ function escapeText(value: string): string {
   return value.replace(/([\\`*_{}\[\]()<>~|])/g, '\\$1');
 }
 
-function messages(data: Record<string, string>): ApplicationEmbed[] {
+export function messages(data: Record<string, string>, reference: string): ApplicationEmbed[] {
   const fields: EmbedField[] = [];
   const used = new Set(['bot-field', 'form-name', 'ip', 'user_agent', 'referrer']);
   // Split long answers without dropping text or splitting emoji.
@@ -40,9 +41,11 @@ function messages(data: Record<string, string>): ApplicationEmbed[] {
   const type = take('application_type');
   const size = take('squad_size');
   const lane = take('main_lane');
+  add('Review status', 'New · Awaiting review', true);
+  add('Reference', reference, true);
   add('Application', staff ? 'Staff recruitment' : type === 'alone' ? 'Solo player' : type === 'squad' ? `Squad · ${size || '—'} players` : type || 'Player recruitment', true);
   add('Focus', goal === 'compete' ? 'Competitive play' : goal === 'organization' ? 'Organization & staff' : goal, true);
-  if (lane) add('Main lane', lane, true);
+  if (lane && !staff) add('Primary lane', lane, true);
 
   for (let player = 1; player <= 5; player++) {
     const details = [
@@ -52,31 +55,35 @@ function messages(data: Record<string, string>): ApplicationEmbed[] {
       const value = take(`player${player}_${key}`);
       return value ? `**${label}:** ${value}` : '';
     }).filter(Boolean);
-    if (details.length) add(`Player ${player}`, details.join('\n'));
+    if (details.length) add(player === 1 ? 'Player 01 · Primary contact' : `Player ${String(player).padStart(2, '0')} · Squad member`, details.join('\n'));
   }
   for (const [key, label] of [
-    ['full_name', 'Applicant'], ['position', 'Position'],
-    ['discord_handle', 'Discord'], ['past_experience', 'Experience & achievements'],
+    ['full_name', 'Applicant name'], ['position', 'Requested position'],
+    ['discord_handle', 'Discord contact'], ['past_experience', 'Experience & achievements'],
   ]) add(label, take(key), key !== 'past_experience');
 
   // Keep any future form fields visible as well.
   for (const [key, value] of Object.entries(data)) {
     if (!used.has(key)) add(escapeText(key.replaceAll('_', ' ')).slice(0, 240), escapeText(value));
   }
-  const title = staff ? 'New Staff Application' : type === 'squad' ? 'New Squad Application' : 'New Player Application';
-  const description = 'A new application is ready for recruitment review.';
+  const title = staff ? 'Staff recruitment / New application' : type === 'squad' ? 'Squad recruitment / New application' : 'Player recruitment / New application';
+  const description = staff
+    ? 'A new applicant wants to join the team behind the team. Review their role, experience and Discord contact below.'
+    : type === 'squad'
+      ? 'A squad has applied to compete with Fnatic Wolf. Review the roster below; Player 01 is the primary contact.'
+      : 'A player has applied to compete with Fnatic Wolf. Their profile and Discord contact are ready for review.';
   const timestamp = new Date().toISOString();
   const embeds: ApplicationEmbed[] = [];
   let current: EmbedField[] = [];
   let length = 0;
   function flush() {
-    embeds.push({ title, description, color: 0xff4500, fields: current,
-      footer: { text: 'FNATIC WOLF • Recruitment' }, timestamp });
+    embeds.push({ author: { name: 'FNATIC WOLF / RECRUITMENT DESK' }, title, description, color: 0xee8553, fields: current,
+      footer: { text: `Fnatic Wolf • ${reference} • Recruitment site` }, timestamp });
     current = [];
     length = 0;
   }
   for (const field of fields) {
-    if (current.length === 25 || length + field.name.length + field.value.length > 5500) flush();
+    if (current.length === 25 || length + field.name.length + field.value.length > 4800) flush();
     current.push(field);
     length += field.name.length + field.value.length;
   }
@@ -94,7 +101,7 @@ async function sendMessage(webhook: URL, embed: ApplicationEmbed): Promise<void>
       response = await fetch(webhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ embeds: [embed], allowed_mentions: { parse: [] } }),
+        body: JSON.stringify({ username: 'Fnatic Wolf Recruitment', embeds: [embed], allowed_mentions: { parse: [] } }),
         signal: AbortSignal.timeout(10000),
       });
     } catch {
@@ -128,6 +135,7 @@ export default {
       throw new Error('Discord webhook configuration is invalid.');
     }
     webhook.searchParams.set('wait', 'true');
-    for (const message of messages(event.data)) await sendMessage(webhook, message);
+    const reference = `FW-${crypto.randomUUID().slice(0, 8).toUpperCase()}`;
+    for (const message of messages(event.data, reference)) await sendMessage(webhook, message);
   },
 };
