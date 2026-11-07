@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join the Pack | Fnatic Wolf Recruitment</title>
+<meta name="description" content="Find your place at Fnatic Wolf. Apply as a Mobile Legends player, bring your squad, or join our coaching, management and creative team.">
+<meta name="theme-color" content="#101114">
+<link rel="preload" as="image" href="/assets/mlbb-battleground.webp">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#ff4500;--white:#fff;--muted:#c9c4c0;--panel:rgba(18,12,10,.78);--line:rgba(255,255,255,.16);--field:rgba(0,0,0,.45);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;min-height:100vh;color:var(--white);font:16px/1.6 "DM Sans",sans-serif;position:relative;overflow-x:hidden;background:#101114}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(12,14,17,.98) 4%,rgba(12,14,17,.86) 34%,rgba(12,14,17,.18) 76%),linear-gradient(0deg,#101114 0%,transparent 65%),url('/assets/mlbb-battleground.webp') 64% center/cover no-repeat}
+body::after{content:"";position:fixed;inset:0;z-index:-1;background:rgba(12,14,17,.67);opacity:0;transition:opacity .3s}
+body.applying::after{opacity:1}
+h1,h2,h3{font-family:Rajdhani,Impact,sans-serif;margin:0;letter-spacing:.02em;line-height:1.05}
+.app{max-width:960px;margin:0 auto;padding:20px 18px 48px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;margin-bottom:18px}
+.brand{font:700 20px Rajdhani,sans-serif;letter-spacing:.08em}.brand b{color:var(--orange)}
+.back{background:none;border:1px solid var(--line);color:var(--white);border-radius:8px;padding:8px 14px;font:600 14px "DM Sans",sans-serif;cursor:pointer;visibility:hidden}
+.back.show{visibility:visible}.back:hover{border-color:var(--orange)}
+.bar{height:4px;background:var(--line);border-radius:4px;overflow:hidden;margin-bottom:28px}
+.bar i{display:block;height:100%;width:0;background:var(--orange);transition:width .45s ease}
+.screen{display:none}.screen.active{display:block;animation:in .38s ease both}.screen.back-dir.active{animation-name:inBack}
+@keyframes in{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes inBack{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+.hero{min-height:62vh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:20px}
+.hero h1{font-size:clamp(40px,9vw,84px);font-weight:700}.hero h1 span{color:var(--orange)}
+.hero p{max-width:46ch;color:var(--muted);font-size:18px;margin:0}
+.btn{background:var(--orange);color:#fff;border:0;border-radius:10px;padding:16px 28px;font:700 18px Rajdhani,sans-serif;letter-spacing:.1em;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,69,0,.4)}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{background:transparent;border:2px solid var(--orange)}
+h2.q{font-size:clamp(28px,6vw,44px);margin-bottom:6px}
+.sub{color:var(--muted);margin:0 0 24px}
+.grid{display:grid;gap:14px}
+.roles{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr))}
+.card{background:var(--panel);border:2px solid var(--line);border-radius:14px;color:inherit;text-align:left;font:inherit;padding:0;cursor:pointer;overflow:hidden;transition:border-color .15s,transform .15s;display:flex;flex-direction:column}
+.card:hover{border-color:rgba(255,69,0,.7);transform:translateY(-3px)}
+.card.sel{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,69,0,.28)}
+.card .img{aspect-ratio:1/1;width:100%;display:block;object-fit:cover;background:#222}
+.card .body{padding:14px 14px 16px}
+.card h3{font-size:24px;margin-bottom:4px}.card p{margin:0;color:var(--muted);font-size:14px}
+.big{padding:26px 22px;gap:8px}.big h3{font-size:30px}.big p{font-size:15px}.big .ic{font-size:36px;color:var(--orange);display:inline-flex}.ico{display:inline-flex;color:var(--orange);font-size:22px;margin-right:8px;vertical-align:-3px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:16px}
+.panel h3{font-size:24px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+label{display:block;font-weight:600;font-size:14px}
+label small{display:block;color:var(--muted);font-weight:400;margin-top:2px}
+input,select,textarea{width:100%;margin-top:6px;padding:13px 14px;font:16px "DM Sans",sans-serif;color:#fff;background:var(--field);border:1px solid var(--line);border-radius:8px}
+select option{color:#000}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--orange);outline-offset:2px;border-color:var(--orange)}
+.panel[hidden]{display:none}
+input.bad,select.bad,textarea.bad{border-color:#ff7a7a}textarea{min-height:150px;resize:vertical;line-height:1.5}
+.err{color:#ff9a8a;font-size:13px;margin-top:4px;min-height:0}
+.size{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.chip{padding:12px 22px;border-radius:999px;border:2px solid var(--line);background:var(--panel);color:#fff;font:700 17px Rajdhani,sans-serif;cursor:pointer}
+.chip.sel{border-color:var(--orange);background:var(--orange)}
+.actions{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+.done{text-align:center;min-height:62vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.done svg{width:96px;height:96px}
+.done circle{fill:none;stroke:var(--orange);stroke-width:5;stroke-dasharray:290;stroke-dashoffset:290;animation:draw .7s .1s forwards}
+.done path{fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:60;stroke-dashoffset:60;animation:draw .5s .7s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done h2{font-size:clamp(26px,6vw,42px)}.done p{max-width:44ch;color:var(--muted);margin:0}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.done circle,.done path{stroke-dashoffset:0}}
+
+/* Fnatic Wolf recruitment identity */
+:root{--orange:#ee7944;--white:#f3f1ec;--muted:#b0b2b7;--panel:rgba(24,26,30,.94);--line:rgba(232,233,237,.14);--field:#121418}
+.app{max-width:1320px;padding:0 56px 24px}.top{height:112px;margin-bottom:0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:15px;text-decoration:none;color:var(--white);font-size:24px;line-height:1.1}.brand b{color:var(--white)}.brand small{display:block;font:500 8px "DM Sans",sans-serif;letter-spacing:.18em;color:var(--muted);margin-top:7px}.brand-mark{font:700 37px Rajdhani,sans-serif;letter-spacing:-4px;border-left:3px solid var(--orange);padding-left:10px}.brand-mark span{color:var(--orange);margin-left:3px}.nav-right{display:flex;align-items:center;gap:24px}.recruiting{font-size:10px;letter-spacing:.15em;display:flex;align-items:center;gap:9px}.recruiting i{height:6px;width:6px;background:var(--orange);border-radius:50%}.back{font-family:"DM Sans",sans-serif;border-radius:3px;font-size:12px;padding:9px 15px}.back:not(.show){display:none}
+.journey{display:flex;justify-content:space-between;gap:16px;font-size:9px;letter-spacing:.17em;color:var(--muted);padding:22px 0 17px}.journey-note{color:#83878f}.bar{height:2px;border-radius:0;margin-bottom:0;background:var(--line)}
+.hero{min-height:600px;gap:23px;padding:58px 0 36px;position:relative}.eyebrow{font-size:10px;font-weight:600;letter-spacing:.22em;display:flex;align-items:center;gap:12px}.eyebrow span{width:25px;height:2px;background:var(--orange)}.hero h1{font-size:clamp(58px,7.4vw,100px);line-height:.91;letter-spacing:-.025em;max-width:780px}.hero h1 span{display:inline-block;margin-top:9px;font-size:1.24em;color:var(--orange)}.hero p{font-size:15px;line-height:1.9;max-width:390px;color:#c0c2c7}.hero-action{display:flex;align-items:center;gap:22px;margin-top:8px}.btn{border-radius:2px;background:var(--orange);color:#15171a;font-size:16px;letter-spacing:.07em;padding:17px 24px;box-shadow:none;transition:transform .18s,background .18s}.btn span{margin-left:35px;font:24px Rajdhani,sans-serif;line-height:0}.btn:hover{box-shadow:none;background:#ff9561;transform:translateY(-2px)}.btn:active{transform:translateY(0)}.action-note{font-size:9px;letter-spacing:.13em;color:var(--muted)}.hero-caption{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:8px;letter-spacing:.15em;color:#9a9da5}.hero-caption b{font-weight:500;font-size:9px;color:#d6d6d7}.caption-line{width:30px;height:1px;background:var(--orange)}
+.welcome-details{display:grid;grid-template-columns:1.1fr 1.4fr .8fr;border-top:1px solid var(--line);background:rgba(16,17,20,.75);padding:26px 0;gap:36px}.detail-no{font-size:9px;letter-spacing:.16em;color:var(--orange)}.welcome-details h3{font-size:24px;margin:10px 0 8px}.welcome-details p{font-size:12px;color:var(--muted);margin:0;max-width:32ch}.review-note{border-left:1px solid var(--line);padding-left:26px}.review-note p{margin-top:8px;font-size:11px;line-height:1.8}.footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:22px;font-size:8px;letter-spacing:.11em;color:#8b8e96}.footer b{color:var(--orange);padding:0 8px}
+.screen:not(#s0){padding:64px 0 72px;min-height:650px}h2.q{font-size:clamp(32px,4.4vw,54px);letter-spacing:-.015em;margin-bottom:12px}.sub{font-size:14px;margin-bottom:36px}.roles{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:4px;position:relative}.card:hover{border-color:var(--orange)}.card.sel{box-shadow:inset 0 0 0 1px var(--orange)}.card .img{aspect-ratio:4/5;object-position:top;filter:saturate(.75);transition:filter .2s,transform .3s}.card:hover .img{filter:saturate(1);transform:scale(1.025)}.card .body{padding:20px 16px;position:relative;background:var(--panel);flex:1}.card h3{font-size:26px}.card p{font-size:12px;line-height:1.7}.ico{font-size:18px;margin-right:6px}.big{padding:32px;min-height:240px;gap:15px}.big .ic{font-size:30px;margin-bottom:15px}.big h3{font-size:32px;max-width:23ch}.big p{font-size:14px}.two{gap:20px}.panel{border-radius:4px;padding:28px;background:var(--panel);margin-bottom:20px}.panel h3{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:24px;font-size:27px}.fields{gap:24px}.fields label{font-size:12px}label small{font-size:11px;margin-top:4px;min-height:18px}input,select,textarea{border-radius:3px;font-family:"DM Sans",sans-serif;font-size:14px;padding:14px}select option{background:#17191d;color:var(--white)}.chip{border-radius:3px;border-width:1px;font-size:16px}.chip.sel{color:#15171a}.actions{margin-top:28px}.done{min-height:440px}.done h2{font-size:54px}.done p{font-size:14px;line-height:1.9}.done .btn{margin-top:10px}h2:focus{outline:none}
+@media(min-width:1500px){.hero{min-height:660px}}
+@media(max-width:900px){.app{padding:0 28px 24px}.hero{min-height:570px}.roles{grid-template-columns:repeat(3,minmax(0,1fr))}.welcome-details{gap:24px;grid-template-columns:1fr 1fr}.review-note{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:18px 0 0;display:flex;gap:24px}.review-note p{margin:0}.hero h1{font-size:76px}.action-note{display:none}}
+@media(max-width:560px){.app{padding:0 20px 20px}.top{height:88px}.brand{font-size:20px;gap:10px}.brand-mark{font-size:31px}.brand small{font-size:6px}.recruiting{font-size:7px;letter-spacing:.07em;gap:6px}.nav-right{gap:8px}.applying .recruiting{display:none}.journey{font-size:7px;letter-spacing:.08em;padding:20px 0 14px}.journey-note{max-width:135px;text-align:right}.hero{min-height:570px;padding:60px 0 30px;gap:25px}.hero h1{font-size:clamp(48px,10.4vw,61px)}.hero p{font-size:13px;max-width:29ch}.eyebrow{font-size:8px}.hero-action{margin-top:4px}.hero-caption{margin-top:25px}body::before{background:linear-gradient(90deg,rgba(12,14,17,.95),rgba(12,14,17,.62) 62%,rgba(12,14,17,.3)),linear-gradient(0deg,#101114,transparent 75%),url('/assets/mlbb-battleground.webp') 56% top/auto 780px no-repeat}.welcome-details{padding:25px 0;gap:25px 17px}.welcome-details h3{font-size:22px;line-height:1.15}.welcome-details p{font-size:11px}.detail-no{font-size:8px}.footer{flex-direction:column;gap:8px;font-size:7px}.screen:not(#s0){padding:42px 0 50px;min-height:620px}.roles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card h3{font-size:23px}.card .body{padding:14px 12px}.card p{font-size:11px}.panel{padding:20px}.big{min-height:200px;padding:25px}.big h3{font-size:30px}.done h2{font-size:36px}.hero .btn{font-size:15px}.sub{font-size:13px}}
+
+</style>
+</head>
+<body>
+<main class="app">
+  <header class="top"><a class="brand" href="/" aria-label="Fnatic Wolf home"><span class="brand-mark" aria-hidden="true">FW<span>/</span></span><span>FNATIC <b>WOLF</b><small>MOBILE LEGENDS: BANG BANG</small></span></a><div class="nav-right"><span class="recruiting"><i></i> RECRUITMENT OPEN</span><button class="back" id="back" type="button">← Back</button></div></header>
+  <div class="journey" aria-label="Application progress"><span id="stepLabel" role="status">YOUR NEXT CHAPTER STARTS HERE</span><span class="journey-note" id="stepCount">FNATIC WOLF / RECRUITMENT</span></div>
+  <div class="bar"><i id="prog"></i></div>
+
+  <form name="fnatic-recruitment" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" id="appForm" novalidate>
+  <input type="hidden" name="form-name" value="fnatic-recruitment">
+  <p hidden><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+  <input type="hidden" name="goal" id="f_goal">
+  <input type="hidden" name="main_lane" id="f_lane">
+  <input type="hidden" name="application_type" id="f_path">
+  <input type="hidden" name="squad_size" id="f_size">
+
+  <section class="screen active" id="s0">
+    <div class="hero">
+      <div class="eyebrow"><span></span> THE NEXT CHAPTER IS YOURS</div>
+      <h1>MORE THAN A TEAM.<br><span>A PACK.</span></h1>
+      <p>The grind means more with the right people.<br>Bring your game. Find your place at Fnatic Wolf.</p>
+      <div class="hero-action"><button class="btn" id="start" type="button">START APPLICATION <span aria-hidden="true">↗</span></button><span class="action-note">PLAYERS. SQUADS. STAFF.</span></div>
+      <div class="hero-caption"><span class="caption-line"></span><span>MOBILE LEGENDS: BANG BANG<br><b>ONE TEAM. EVERY ROLE MATTERS.</b></span></div>
+    </div>
+    <div class="welcome-details"><div><span class="detail-no">01 / COMPETE</span><h3>Make your next move.</h3><p>Apply solo or bring your duo, trio, or full five.</p></div><div><span class="detail-no">02 / CONTRIBUTE</span><h3>Build beyond the battlefield.</h3><p>Coaches, analysts, managers and creators belong here too.</p></div><div class="review-note"><span class="detail-no">THE PROCESS</span><p>Share your details.<br>Our managers review.<br>Keep an eye on Discord.</p></div></div>
+  </section>
+
+  <section class="screen" id="s1">
+    <h2 class="q">01 / WHAT LANE DO YOU MAIN?</h2>
+    <p class="sub">Pick the lane you play best.</p>
+    <div class="grid roles" id="roles"></div>
+  </section>
+
+  <section class="screen" id="s2">
+    <h2 class="q">02 / WHY ARE YOU JOINING?</h2>
+    <p class="sub">Tell us what you are here for.</p>
+    <div class="grid two" id="goals"></div>
+  </section>
+
+  <section class="screen" id="s3">
+    <h2 class="q">03 / CHOOSE YOUR PATH</h2>
+    <p class="sub">Going solo or bringing your team?</p>
+    <div class="grid two" id="paths"></div>
+  </section>
+
+  <section class="screen" id="s4">
+    <h2 class="q">04 / FILL YOUR INFO</h2>
+    <p class="sub" id="infoSub">Double-check your IDs. Wrong numbers mean we can't find you.</p>
+    <div id="sizeWrap" style="display:none">
+      <div class="size" id="size"></div>
+    </div>
+    <div id="players">
+      <div class="panel" data-p="0"><h3><span class="ico"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span><span class="ptitle">Your Info</span></h3><div class="fields">
+        <label class="rolefld" style="display:none">Lane<select name="player1_lane" data-f="role"><option>EXP Lane</option><option>Jungler</option><option>Mid Lane</option><option>Gold Lane</option><option>Roamer</option></select></label>
+        <label>IGN<small>Your in-game name</small><input name="player1_ign" data-f="ign" autocomplete="off" placeholder="e.g. WolfRider"></label>
+        <label>Character ID<small>Numbers only, from your profile</small><input name="player1_character_id" data-f="cid" inputmode="numeric" autocomplete="off" placeholder="e.g. 123456789"></label>
+        <label>Server ID<small>The 4 or 5-digit number in brackets</small><input name="player1_server_id" data-f="sid" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="e.g. 2345"></label>
+        <label>Highest Star Reached<small>Your peak rank, e.g. Mythical Glory 100 stars</small><input name="player1_highest_star" data-f="star" autocomplete="off" placeholder="e.g. Mythic 45 stars"></label>
+        <label>Discord Handle<small>So we can reach you</small><input name="player1_discord" data-f="dc" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
+      </div><div role="alert" class="err"></div></div>
+      <div class="panel" data-p="1" hidden><h3><span class="ico"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span><span class="ptitle">Your Info</span></h3><div class="fields">
+        <label class="rolefld" style="display:none">Lane<select name="player2_lane" data-f="role"><option>EXP Lane</option><option>Jungler</option><option>Mid Lane</option><option>Gold Lane</option><option>Roamer</option></select></label>
+        <label>IGN<small>Your in-game name</small><input name="player2_ign" data-f="ign" autocomplete="off" placeholder="e.g. WolfRider"></label>
+        <label>Character ID<small>Numbers only, from your profile</small><input name="player2_character_id" data-f="cid" inputmode="numeric" autocomplete="off" placeholder="e.g. 123456789"></label>
+        <label>Server ID<small>The 4 or 5-digit number in brackets</small><input name="player2_server_id" data-f="sid" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="e.g. 2345"></label>
+        <label>Highest Star Reached<small>Your peak rank, e.g. Mythical Glory 100 stars</small><input name="player2_highest_star" data-f="star" autocomplete="off" placeholder="e.g. Mythic 45 stars"></label>
+        <label>Discord Handle<small>So we can reach you</small><input name="player2_discord" data-f="dc" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
+      </div><div role="alert" class="err"></div></div>
+      <div class="panel" data-p="2" hidden><h3><span class="ico"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span><span class="ptitle">Your Info</span></h3><div class="fields">
+        <label class="rolefld" style="display:none">Lane<select name="player3_lane" data-f="role"><option>EXP Lane</option><option>Jungler</option><option>Mid Lane</option><option>Gold Lane</option><option>Roamer</option></select></label>
+        <label>IGN<small>Your in-game name</small><input name="player3_ign" data-f="ign" autocomplete="off" placeholder="e.g. WolfRider"></label>
+        <label>Character ID<small>Numbers only, from your profile</small><input name="player3_character_id" data-f="cid" inputmode="numeric" autocomplete="off" placeholder="e.g. 123456789"></label>
+        <label>Server ID<small>The 4 or 5-digit number in brackets</small><input name="player3_server_id" data-f="sid" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="e.g. 2345"></label>
+        <label>Highest Star Reached<small>Your peak rank, e.g. Mythical Glory 100 stars</small><input name="player3_highest_star" data-f="star" autocomplete="off" placeholder="e.g. Mythic 45 stars"></label>
+        <label>Discord Handle<small>So we can reach you</small><input name="player3_discord" data-f="dc" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
+      </div><div role="alert" class="err"></div></div>
+      <div class="panel" data-p="3" hidden><h3><span class="ico"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span><span class="ptitle">Your Info</span></h3><div class="fields">
+        <label class="rolefld" style="display:none">Lane<select name="player4_lane" data-f="role"><option>EXP Lane</option><option>Jungler</option><option>Mid Lane</option><option>Gold Lane</option><option>Roamer</option></select></label>
+        <label>IGN<small>Your in-game name</small><input name="player4_ign" data-f="ign" autocomplete="off" placeholder="e.g. WolfRider"></label>
+        <label>Character ID<small>Numbers only, from your profile</small><input name="player4_character_id" data-f="cid" inputmode="numeric" autocomplete="off" placeholder="e.g. 123456789"></label>
+        <label>Server ID<small>The 4 or 5-digit number in brackets</small><input name="player4_server_id" data-f="sid" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="e.g. 2345"></label>
+        <label>Highest Star Reached<small>Your peak rank, e.g. Mythical Glory 100 stars</small><input name="player4_highest_star" data-f="star" autocomplete="off" placeholder="e.g. Mythic 45 stars"></label>
+        <label>Discord Handle<small>So we can reach you</small><input name="player4_discord" data-f="dc" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
+      </div><div role="alert" class="err"></div></div>
+      <div class="panel" data-p="4" hidden><h3><span class="ico"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/></svg></span><span class="ptitle">Your Info</span></h3><div class="fields">
+        <label class="rolefld" style="display:none">Lane<select name="player5_lane" data-f="role"><option>EXP Lane</option><option>Jungler</option><option>Mid Lane</option><option>Gold Lane</option><option>Roamer</option></select></label>
+        <label>IGN<small>Your in-game name</small><input name="player5_ign" data-f="ign" autocomplete="off" placeholder="e.g. WolfRider"></label>
+        <label>Character ID<small>Numbers only, from your profile</small><input name="player5_character_id" data-f="cid" inputmode="numeric" autocomplete="off" placeholder="e.g. 123456789"></label>
+        <label>Server ID<small>The 4 or 5-digit number in brackets</small><input name="player5_server_id" data-f="sid" inputmode="numeric" maxlength="5" autocomplete="off" placeholder="e.g. 2345"></label>
+        <label>Highest Star Reached<small>Your peak rank, e.g. Mythical Glory 100 stars</small><input name="player5_highest_star" data-f="star" autocomplete="off" placeholder="e.g. Mythic 45 stars"></label>
+        <label>Discord Handle<small>So we can reach you</small><input name="player5_discord" data-f="dc" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
+      </div><div role="alert" class="err"></div></div>
+    </div>
+    <div class="actions"><button class="btn" id="submit" type="submit">SUBMIT APPLICATION</button></div>
+    <div role="alert" class="err" id="sendErr"></div>
+  </section>
+
+  <section class="screen" id="s6">
+    <h2 class="q">03 / STAFF APPLICATION</h2>
+    <p class="sub">Coaches, managers and analysts: tell us who you are and what you have done.</p>
+    <div class="panel"><div class="fields">
+      <label>Full Name<input id="stName" name="full_name" autocomplete="name" placeholder="Your real name"></label>
+      <label>Position<select id="stPos" name="position"><option value="">Pick a position</option><option>Coach</option><option>Manager</option><option>Analyst</option><option>Content Creator</option></select></label>
+      <label>Discord Handle<small>So we can reach you</small><input id="stDc" name="discord_handle" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
+    </div>
+    <label style="margin-top:14px">Past Experience<small>Teams you worked with, results, tournaments, anything that shows what you can do</small><textarea id="stExp" name="past_experience" placeholder="Write it here..."></textarea></label>
+    <div role="alert" class="err" id="stErr"></div></div>
+    <div class="actions"><button class="btn" id="staffSubmit" type="submit">SUBMIT APPLICATION</button></div>
+  </section>
+
+  <section class="screen" id="s5">
+    <div class="done">
+      <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><path d="M30 52l14 14 27-30"/></svg>
+      <h2>YOU’RE ON OUR RADAR.</h2>
+      <p>Thanks for applying! Our management team will review your application. If you qualify, we will message you directly on Discord within 5 days.</p>
+      <button class="btn" id="home" type="button">BACK TO WELCOME PAGE</button>
+    </div>
+  </section>
+  </form>
+  <footer class="footer"><span>FNATIC WOLF <b>/</b> BUILT FOR THE GAME.</span><span>Community recruitment · MLBB artwork © MOONTON</span></footer>
+</main>
+
+<script>
+var ROLES=[
+ {k:'EXP Lane',e:'exp',hero:'Yu Zhong',img:'/assets/yu_zhong.png',d:'Frontline, durable fighters.',c:['#ff4500','#4a1300']},
+ {k:'Jungler',e:'jungle',hero:'Lancelot',img:'/assets/lancelot.png',d:'Assassin mains and objective hunters.',c:['#ff7a1a','#3a1a05']},
+ {k:'Mid Lane',e:'mid',hero:'Yve',img:'/assets/yve.png',d:'Mage mains controlling map rotations.',c:['#d8328a','#2a0a2a']},
+ {k:'Gold Lane',e:'gold',hero:'Granger',img:'/assets/granger.png',d:'Marksman scaling for late-game carries.',c:['#ffb21a','#3a2a05']},
+ {k:'Roamer',e:'roam',hero:'Khufra',img:'/assets/khufra.png',d:'Tank and Support shot-callers setting up team fights.',c:['#e0662a','#2a1208']}
+];
+var GOALS=[
+ {k:'compete',e:'star',t:'To play competitively',d:'You want to grind tournaments and team scrims.'},
+ {k:'org',e:'list',t:'To join the organization',d:'You are a coach, analyst, content creator, or staff.'}
+];
+var PATHS=[
+ {k:'alone',e:'one',t:'Applying Alone',d:'Just you. One form, quick and simple.'},
+ {k:'squad',e:'many',t:'Applying as a Squad (Duo, Trio, or 5-Man)',d:'Bring your stack and we will look at all of you together.'}
+];
+var ICON={
+exp:'<path d="M4 4l10 10M11 17l6-6M14 14l6 6M20 4L10 14M13 17L7 11M10 14L4 20"/>',
+jungle:'<path d="M12 2l3 10-3 2-3-2z"/><path d="M7 14h10M12 14v6M10 20h4"/>',
+mid:'<path d="M11 3c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z"/><path d="M19 16v5M16.5 18.5h5"/>',
+gold:'<circle cx="12" cy="12" r="7"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
+roam:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/>',
+star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+list:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/>',
+one:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/>',
+many:'<circle cx="8" cy="9" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20c0-3.5 2.5-5.5 6-5.5s6 2 6 5.5M15 14.5c3 0 7 1 7 5.5"/>'};
+function ico(k){return '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICON[k]+'</svg>'}
+var sending=false;
+var S={step:0,role:null,goal:null,path:null,size:2};
+var $=function(id){return document.getElementById(id)};
+
+function portrait(r){if(r.img)return r.img;
+ var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="'+r.c[0]+'"/><stop offset="1" stop-color="'+r.c[1]+'"/></linearGradient></defs><rect width="300" height="300" fill="url(#g)"/><circle cx="150" cy="128" r="62" fill="rgba(0,0,0,.28)"/><path d="M40 300c8-70 52-100 110-100s102 30 110 100z" fill="rgba(0,0,0,.28)"/><g transform="translate(118 96) scale(2.67)" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">'+ICON[r.e]+'</g><text x="150" y="268" font-size="34" font-weight="700" font-family="Rajdhani,Impact,sans-serif" fill="#fff" text-anchor="middle" letter-spacing="3">'+r.hero.toUpperCase()+'</text></svg>';
+ return 'data:image/svg+xml;utf8,'+encodeURIComponent(svg);
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+function buildRoles(){
+ $('roles').innerHTML=ROLES.map(function(r,i){
+  return '<button type="button" class="card" data-i="'+i+'"><img class="img" alt="'+r.hero+' portrait" src="'+portrait(r)+'"><div class="body"><h3><span class="ico">'+ico(r.e)+'</span>'+r.k+'</h3><p>'+r.d+'</p></div></button>';
+ }).join('');
+ $('roles').onclick=function(e){var b=e.target.closest('.card');if(!b)return;S.role=ROLES[b.dataset.i].k;mark('roles',b);go(GOAL)};
+}
+function buildBig(id,list,key){
+ $(id).innerHTML=list.map(function(o,i){return '<button type="button" class="card big" data-i="'+i+'"><span class="ic">'+ico(o.e)+'</span><h3>'+o.t+'</h3><p>'+o.d+'</p></button>'}).join('');
+ [].forEach.call($(id).querySelectorAll('.card'),function(b,i){
+  b.addEventListener('click',function(){S[key]=list[i].k;mark(id,b);route(key)});
+ });
+}
+function mark(id,b){[].forEach.call($(id).children,function(c){c.classList.remove('sel')});b.classList.add('sel')}
+
+function renderPlayers(){
+ var squad=S.path==='squad',n=squad?S.size:1;
+ $('sizeWrap').style.display=squad?'block':'none';
+ if(squad){
+  $('size').innerHTML=[['Duo',2],['Trio',3],['5-Man',5]].map(function(a){return '<button type="button" class="chip'+(S.size===a[1]?' sel':'')+'" data-n="'+a[1]+'">'+a[0]+'</button>'}).join('');
+  $('infoSub').textContent='Fill in every teammate. Same rules for all of you: double-check your IDs.';
+ } else $('infoSub').textContent="Double-check your IDs. Wrong numbers mean we can't find you.";
+ [].forEach.call($('players').querySelectorAll('.panel'),function(p,i){
+  p.hidden=i>=n;
+  p.querySelector('.ptitle').textContent=squad?(i===0?'Player 1 (You)':'Player '+(i+1)):'Your Info';
+  p.querySelector('.rolefld').style.display=squad?'':'none';
+  var sel=p.querySelector('[data-f=role]');
+  if(!sel.dataset.set||i===0){sel.value=(i===0?S.role:ROLES[i%5].k)||sel.value;sel.dataset.set=1}
+  if(i===0)sel.onchange=function(){S.role=sel.value}
+ });
+}
+$('size').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;S.size=+b.dataset.n;renderPlayers()};
+
+function validate(){
+ var ok=true;
+ [].forEach.call($('players').querySelectorAll('.panel:not([hidden])'),function(p){
+  var msgs=[];
+  function f(n){return p.querySelector('[data-f='+n+']')}
+  ['ign','cid','sid','star','dc'].forEach(function(n){f(n).classList.remove('bad')});
+  function bad(n,m){f(n).classList.add('bad');msgs.push(m)}
+  var v=function(n){return f(n).value.trim()};
+  if(!v('ign'))bad('ign','Enter your IGN.');
+  if(!/^\d{6,14}$/.test(v('cid')))bad('cid','Character ID must contain 6 to 14 digits.');
+  if(!/^\d{4,5}$/.test(v('sid')))bad('sid','Server ID is 4 or 5 digits.');
+  if(!v('star'))bad('star','Tell us your highest star reached.');
+  if(v('dc').length<2)bad('dc','Enter your Discord handle.');
+  p.querySelector('.err').textContent=msgs.join(' ');
+  if(msgs.length)ok=false;
+ });
+ if(!ok){var first=$('players').querySelector('.panel:not([hidden]) .bad');if(first)first.focus()}
+ return ok;
+}
+/* Submit only fields belonging to the selected application, without disabling inputs. */
+function sendToNetlify(){
+ var form=$('appForm'),staff=S.goal==='org',squad=S.path==='squad',n=squad?S.size:1;
+ $('f_goal').value=staff?'organization':'compete';
+ $('f_lane').value=staff?'':(S.role||'');
+ $('f_path').value=staff?'staff':(squad?'squad':'alone');
+ $('f_size').value=staff?'':n;
+ var data=new FormData(form);
+ [].forEach.call($('players').querySelectorAll('.panel'),function(p,i){
+  if(staff||i>=n)[].forEach.call(p.querySelectorAll('[name]'),function(el){data.delete(el.name)});
+ });
+ if(!staff)[].forEach.call($('s6').querySelectorAll('[name]'),function(el){data.delete(el.name)});
+ data.forEach(function(value,key){if(key!=='bot-field'&&typeof value==='string')data.set(key,value.trim())});
+ return fetch(form.action,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(data).toString()})
+  .then(function(r){if(!r.ok){var error=new Error('HTTP '+r.status);error.status=r.status;throw error}});
+}
+function submitApplication(btn,errEl){
+ if(sending)return;
+ sending=true;errEl.textContent='';var label=btn.textContent;btn.textContent='SENDING...';
+ var controls=[].map.call($('appForm').querySelectorAll('input,select,textarea,button'),function(el){return {el:el,disabled:el.disabled}});
+ $('back').disabled=true;$('appForm').setAttribute('aria-busy','true');
+ // Create the payload before locking controls, so FormData includes the applicant's fields.
+ Promise.resolve().then(function(){
+  var request=sendToNetlify();
+  controls.forEach(function(item){item.el.disabled=true});
+  return request;
+ }).then(function(){go(DONE)})
+ .catch(function(error){
+  if(error.status===404||error.status===405)errEl.textContent="Applications are temporarily unavailable. Please try again later. Your details are still here.";
+  else if(error.status===429)errEl.textContent="Too many attempts. Please wait a few minutes before submitting again. Your details are still here.";
+  else if(error.status)errEl.textContent="The application service couldn't accept your submission. Please try again shortly. Your details are still here.";
+  else errEl.textContent="Couldn't reach the application service. Check your connection and try again. Your details are still here.";
+ }).finally(function(){
+  controls.forEach(function(item){item.el.disabled=item.disabled});
+  sending=false;$('back').disabled=false;$('appForm').removeAttribute('aria-busy');btn.textContent=label;
+ });
+}
+$('appForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ if(sending)return;
+ if(S.step===INFO&&validate())submitApplication($('submit'),$('sendErr'));
+ else if(S.step===STAFF&&validateStaff())submitApplication($('staffSubmit'),$('stErr'));
+});
+
+var WELCOME=0,ROLE=1,GOAL=2,PATH=3,INFO=4,DONE=5,STAFF=6;
+var PROG={0:0,1:1,2:2,3:3,6:3,4:4,5:5},H=[];
+function show(n,backward){
+ S.step=n;
+ [].forEach.call(document.querySelectorAll('.screen'),function(el){el.classList.remove('active','back-dir')});
+ var el=$('s'+n);if(backward)el.classList.add('back-dir');el.classList.add('active');
+ if(n===INFO)renderPlayers();
+ $('prog').style.width=(n===DONE?100:PROG[n]/(S.goal==='org'?3:4)*100)+'%';
+ document.body.classList.toggle('applying',n!==WELCOME);
+ $('stepLabel').textContent=['YOUR NEXT CHAPTER STARTS HERE','CHOOSE YOUR MAIN LANE','FIND YOUR PLACE','SOLO OR SQUAD','YOUR PLAYER PROFILE','APPLICATION RECEIVED','JOIN THE TEAM BEHIND THE TEAM'][n];
+ $('stepCount').textContent=n===WELCOME?'FNATIC WOLF / RECRUITMENT':n===DONE?'THANK YOU FOR APPLYING':'STEP '+PROG[n]+' / '+(S.goal==='org'?'3':'4');
+ var heading=el.querySelector('h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true})}
+ $('back').classList.toggle('show',n!==WELCOME&&n!==DONE);
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function go(n){H.push(S.step);show(n,false)}
+function route(key){
+ if(key==='goal'){go(S.goal==='org'?STAFF:PATH)}   /* org -> staff page, competitive -> choose your path */
+ else if(key==='path'){go(INFO)}
+}
+$('back').addEventListener('click',function(){if(!sending&&H.length)show(H.pop(),true)});
+function validateStaff(){
+ var f={n:$('stName'),p:$('stPos'),d:$('stDc'),x:$('stExp')},m=[];
+ Object.keys(f).forEach(function(k){f[k].classList.remove('bad')});
+ if(f.n.value.trim().length<2){f.n.classList.add('bad');m.push('Enter your full name.')}
+ if(!f.p.value){f.p.classList.add('bad');m.push('Pick a position.')}
+ if(f.d.value.trim().length<2){f.d.classList.add('bad');m.push('Enter your Discord handle.')}
+ if(f.x.value.trim().length<10){f.x.classList.add('bad');m.push('Tell us a bit about your past experience.')}
+ $('stErr').textContent=m.join(' ');
+ if(m.length){var bad=document.querySelector('#s6 .bad');if(bad)bad.focus();return false}
+ return true;
+}
+$('start').addEventListener('click',function(){go(ROLE)});
+$('home').onclick=function(){S={step:0,role:null,goal:null,path:null,size:2};buildRoles();buildBig('goals',GOALS,'goal');buildBig('paths',PATHS,'path');$('appForm').reset();[].forEach.call(document.querySelectorAll('.bad'),function(el){el.classList.remove('bad')});[].forEach.call(document.querySelectorAll('.err'),function(el){el.textContent=''});[].forEach.call(document.querySelectorAll('[data-f=role]'),function(x){delete x.dataset.set});H=[];show(WELCOME,true)};
+buildRoles();buildBig('goals',GOALS,'goal');buildBig('paths',PATHS,'path');
+</script>
+</body>
+</html>
