@@ -6,15 +6,22 @@
 <title>Join the Pack | Fnatic Wolf Recruitment</title>
 <meta name="description" content="Find your place at Fnatic Wolf. Apply as a Mobile Legends player, bring your squad, or join our coaching, management and creative team.">
 <meta name="theme-color" content="#101114">
-<link rel="preload" as="image" href="/assets/mlbb-battleground.webp">
+<link rel="preload" as="image" href="/assets/ling-serene-plume.jpg">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{--orange:#ff4500;--white:#fff;--muted:#c9c4c0;--panel:rgba(18,12,10,.78);--line:rgba(255,255,255,.16);--field:rgba(0,0,0,.45);
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:inherit}
-body{margin:0;min-height:100vh;color:var(--white);font:16px/1.6 "DM Sans",sans-serif;position:relative;overflow-x:hidden;background:#101114}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(12,14,17,.98) 4%,rgba(12,14,17,.86) 34%,rgba(12,14,17,.18) 76%),linear-gradient(0deg,#101114 0%,transparent 65%),url('/assets/mlbb-battleground.webp') 64% center/cover no-repeat}
+body{margin:0;min-height:100vh;color:var(--white);font:16px/1.6 "DM Sans",sans-serif;position:relative;isolation:isolate;overflow-x:hidden;background:#101114}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:linear-gradient(90deg,#101114 4%,rgba(16,17,20,.91) 30%,rgba(16,17,20,.18) 75%),linear-gradient(0deg,#101114 0%,transparent 75%)}
+.scene{position:fixed;inset:0;z-index:-3;pointer-events:none;overflow:hidden;background:#101114}
+.scene-art{position:absolute;inset:-3% -8% -3% 22%;background:url('/assets/ling-serene-plume.jpg') center/cover no-repeat;animation:ling-drift 24s ease-in-out infinite alternate}
+.scene-motes{position:absolute;inset:-10%;opacity:.45;background:radial-gradient(ellipse at 20% 30%,#c7f4ec 0 1px,transparent 2px),radial-gradient(ellipse at 70% 65%,#b1e5df 0 1px,transparent 2px),radial-gradient(ellipse at 45% 80%,#eee4c9 0 1px,transparent 2px);background-size:230px 310px,370px 270px,410px 430px;animation:motes-drift 20s linear infinite}
+@keyframes ling-drift{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.06) translate3d(-1%,1%,0)}}
+@keyframes motes-drift{to{transform:translate3d(35px,-65px,0)}}
+.role-badge{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;margin-bottom:14px;color:#e5bf85;background:linear-gradient(145deg,#35312a,#1e2024);border:1px solid #796344;clip-path:polygon(22% 0,78% 0,100% 22%,100% 78%,78% 100%,22% 100%,0 78%,0 22%)}
+.role-badge svg{width:25px;height:25px}.card h3{display:flex;align-items:center;gap:8px}
 body::after{content:"";position:fixed;inset:0;z-index:-1;background:rgba(12,14,17,.67);opacity:0;transition:opacity .3s}
 body.applying::after{opacity:1}
 h1,h2,h3{font-family:Rajdhani,Impact,sans-serif;margin:0;letter-spacing:.02em;line-height:1.05}
@@ -77,14 +84,16 @@ input.bad,select.bad,textarea.bad{border-color:#ff7a7a}textarea{min-height:150px
 .journey{display:flex;justify-content:space-between;gap:16px;font-size:9px;letter-spacing:.17em;color:var(--muted);padding:22px 0 17px}.journey-note{color:#83878f}.bar{height:2px;border-radius:0;margin-bottom:0;background:var(--line)}
 .hero{min-height:600px;gap:23px;padding:58px 0 36px;position:relative}.eyebrow{font-size:10px;font-weight:600;letter-spacing:.22em;display:flex;align-items:center;gap:12px}.eyebrow span{width:25px;height:2px;background:var(--orange)}.hero h1{font-size:clamp(58px,7.4vw,100px);line-height:.91;letter-spacing:-.025em;max-width:780px}.hero h1 span{display:inline-block;margin-top:9px;font-size:1.24em;color:var(--orange)}.hero p{font-size:15px;line-height:1.9;max-width:390px;color:#c0c2c7}.hero-action{display:flex;align-items:center;gap:22px;margin-top:8px}.btn{border-radius:2px;background:var(--orange);color:#15171a;font-size:16px;letter-spacing:.07em;padding:17px 24px;box-shadow:none;transition:transform .18s,background .18s}.btn span{margin-left:35px;font:24px Rajdhani,sans-serif;line-height:0}.btn:hover{box-shadow:none;background:#ff9561;transform:translateY(-2px)}.btn:active{transform:translateY(0)}.action-note{font-size:9px;letter-spacing:.13em;color:var(--muted)}.hero-caption{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:8px;letter-spacing:.15em;color:#9a9da5}.hero-caption b{font-weight:500;font-size:9px;color:#d6d6d7}.caption-line{width:30px;height:1px;background:var(--orange)}
 .welcome-details{display:grid;grid-template-columns:1.1fr 1.4fr .8fr;border-top:1px solid var(--line);background:rgba(16,17,20,.75);padding:26px 0;gap:36px}.detail-no{font-size:9px;letter-spacing:.16em;color:var(--orange)}.welcome-details h3{font-size:24px;margin:10px 0 8px}.welcome-details p{font-size:12px;color:var(--muted);margin:0;max-width:32ch}.review-note{border-left:1px solid var(--line);padding-left:26px}.review-note p{margin-top:8px;font-size:11px;line-height:1.8}.footer{display:flex;justify-content:space-between;gap:16px;border-top:1px solid var(--line);padding-top:22px;font-size:8px;letter-spacing:.11em;color:#8b8e96}.footer b{color:var(--orange);padding:0 8px}
-.screen:not(#s0){padding:64px 0 72px;min-height:650px}h2.q{font-size:clamp(32px,4.4vw,54px);letter-spacing:-.015em;margin-bottom:12px}.sub{font-size:14px;margin-bottom:36px}.roles{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:4px;position:relative}.card:hover{border-color:var(--orange)}.card.sel{box-shadow:inset 0 0 0 1px var(--orange)}.card .img{aspect-ratio:4/5;object-position:top;filter:saturate(.75);transition:filter .2s,transform .3s}.card:hover .img{filter:saturate(1);transform:scale(1.025)}.card .body{padding:20px 16px;position:relative;background:var(--panel);flex:1}.card h3{font-size:26px}.card p{font-size:12px;line-height:1.7}.ico{font-size:18px;margin-right:6px}.big{padding:32px;min-height:240px;gap:15px}.big .ic{font-size:30px;margin-bottom:15px}.big h3{font-size:32px;max-width:23ch}.big p{font-size:14px}.two{gap:20px}.panel{border-radius:4px;padding:28px;background:var(--panel);margin-bottom:20px}.panel h3{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:24px;font-size:27px}.fields{gap:24px}.fields label{font-size:12px}label small{font-size:11px;margin-top:4px;min-height:18px}input,select,textarea{border-radius:3px;font-family:"DM Sans",sans-serif;font-size:14px;padding:14px}select option{background:#17191d;color:var(--white)}.chip{border-radius:3px;border-width:1px;font-size:16px}.chip.sel{color:#15171a}.actions{margin-top:28px}.done{min-height:440px}.done h2{font-size:54px}.done p{font-size:14px;line-height:1.9}.done .btn{margin-top:10px}h2:focus{outline:none}
+.screen:not(#s0){padding:64px 0 72px;min-height:650px}h2.q{font-size:clamp(32px,4.4vw,54px);letter-spacing:-.015em;margin-bottom:12px}.sub{font-size:14px;margin-bottom:36px}.roles{grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:4px;position:relative}.card:hover{border-color:var(--orange)}.card.sel{box-shadow:inset 0 0 0 1px var(--orange)}.card .img{height:auto;aspect-ratio:4/5;object-position:top;filter:saturate(.75);transition:filter .2s,transform .3s}.card:hover .img{filter:saturate(1);transform:scale(1.025)}.card .body{padding:20px 16px;position:relative;background:var(--panel);flex:1}.card h3{font-size:26px}.card p{font-size:12px;line-height:1.7}.ico{font-size:18px;margin-right:6px}.big{padding:32px;min-height:240px;gap:15px}.big .ic{font-size:30px;margin-bottom:15px}.big h3{font-size:32px;max-width:23ch}.big p{font-size:14px}.two{gap:20px}.panel{border-radius:4px;padding:28px;background:var(--panel);margin-bottom:20px}.panel h3{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:24px;font-size:27px}.fields{gap:24px}.fields label{font-size:12px}label small{font-size:11px;margin-top:4px;min-height:18px}input,select,textarea{border-radius:3px;font-family:"DM Sans",sans-serif;font-size:14px;padding:14px}select option{background:#17191d;color:var(--white)}.chip{border-radius:3px;border-width:1px;font-size:16px}.chip.sel{color:#15171a}.actions{margin-top:28px}.done{min-height:440px}.done h2{font-size:54px}.done p{font-size:14px;line-height:1.9}.done .btn{margin-top:10px}h2:focus{outline:none}
 @media(min-width:1500px){.hero{min-height:660px}}
 @media(max-width:900px){.app{padding:0 28px 24px}.hero{min-height:570px}.roles{grid-template-columns:repeat(3,minmax(0,1fr))}.welcome-details{gap:24px;grid-template-columns:1fr 1fr}.review-note{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:18px 0 0;display:flex;gap:24px}.review-note p{margin:0}.hero h1{font-size:76px}.action-note{display:none}}
-@media(max-width:560px){.app{padding:0 20px 20px}.top{height:88px}.brand{font-size:20px;gap:10px}.brand-mark{font-size:31px}.brand small{font-size:6px}.recruiting{font-size:7px;letter-spacing:.07em;gap:6px}.nav-right{gap:8px}.applying .recruiting{display:none}.journey{font-size:7px;letter-spacing:.08em;padding:20px 0 14px}.journey-note{max-width:135px;text-align:right}.hero{min-height:570px;padding:60px 0 30px;gap:25px}.hero h1{font-size:clamp(48px,10.4vw,61px)}.hero p{font-size:13px;max-width:29ch}.eyebrow{font-size:8px}.hero-action{margin-top:4px}.hero-caption{margin-top:25px}body::before{background:linear-gradient(90deg,rgba(12,14,17,.95),rgba(12,14,17,.62) 62%,rgba(12,14,17,.3)),linear-gradient(0deg,#101114,transparent 75%),url('/assets/mlbb-battleground.webp') 56% top/auto 780px no-repeat}.welcome-details{padding:25px 0;gap:25px 17px}.welcome-details h3{font-size:22px;line-height:1.15}.welcome-details p{font-size:11px}.detail-no{font-size:8px}.footer{flex-direction:column;gap:8px;font-size:7px}.screen:not(#s0){padding:42px 0 50px;min-height:620px}.roles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card h3{font-size:23px}.card .body{padding:14px 12px}.card p{font-size:11px}.panel{padding:20px}.big{min-height:200px;padding:25px}.big h3{font-size:30px}.done h2{font-size:36px}.hero .btn{font-size:15px}.sub{font-size:13px}}
+@media(max-width:560px){.app{padding:0 20px 20px}.top{height:88px}.brand{font-size:20px;gap:10px}.brand-mark{font-size:31px}.brand small{font-size:6px}.recruiting{font-size:7px;letter-spacing:.07em;gap:6px}.nav-right{gap:8px}.applying .recruiting{display:none}.journey{font-size:7px;letter-spacing:.08em;padding:20px 0 14px}.journey-note{max-width:135px;text-align:right}.hero{min-height:570px;padding:60px 0 30px;gap:25px}.hero h1{font-size:clamp(48px,10.4vw,61px)}.hero p{font-size:13px;max-width:29ch}.eyebrow{font-size:8px}.hero-action{margin-top:4px}.hero-caption{margin-top:25px}.scene-art{inset:-2% -55% 0 0;background-position:40% top}body::before{background:linear-gradient(90deg,rgba(12,14,17,.93),rgba(12,14,17,.64) 62%,rgba(12,14,17,.36)),linear-gradient(0deg,#101114,transparent 75%)}.welcome-details{padding:25px 0;gap:25px 17px}.welcome-details h3{font-size:22px;line-height:1.15}.welcome-details p{font-size:11px}.detail-no{font-size:8px}.footer{flex-direction:column;gap:8px;font-size:7px}.screen:not(#s0){padding:42px 0 50px;min-height:620px}.roles{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card h3{font-size:23px}.card .body{padding:14px 12px}.card p{font-size:11px}.panel{padding:20px}.big{min-height:200px;padding:25px}.big h3{font-size:30px}.done h2{font-size:36px}.hero .btn{font-size:15px}.sub{font-size:13px}}
 
 </style>
 </head>
 <body>
+<div class="scene" aria-hidden="true"><div class="scene-art"></div><div class="scene-motes"></div></div>
+<noscript><p class="panel">JavaScript is required for the application steps. Enable it to apply.</p></noscript>
 <main class="app">
   <header class="top"><a class="brand" href="/" aria-label="Fnatic Wolf home"><span class="brand-mark" aria-hidden="true">FW<span>/</span></span><span>FNATIC <b>WOLF</b><small>MOBILE LEGENDS: BANG BANG</small></span></a><div class="nav-right"><span class="recruiting"><i></i> RECRUITMENT OPEN</span><button class="back" id="back" type="button">← Back</button></div></header>
   <div class="journey" aria-label="Application progress"><span id="stepLabel" role="status">YOUR NEXT CHAPTER STARTS HERE</span><span class="journey-note" id="stepCount">FNATIC WOLF / RECRUITMENT</span></div>
@@ -187,7 +196,7 @@ input.bad,select.bad,textarea.bad{border-color:#ff7a7a}textarea{min-height:150px
       <label>Position<select id="stPos" name="position"><option value="">Pick a position</option><option>Coach</option><option>Manager</option><option>Analyst</option><option>Content Creator</option></select></label>
       <label>Discord Handle<small>So we can reach you</small><input id="stDc" name="discord_handle" autocomplete="off" placeholder="e.g. wolfrider#0 or @wolfrider"></label>
     </div>
-    <label style="margin-top:14px">Past Experience<small>Teams you worked with, results, tournaments, anything that shows what you can do</small><textarea id="stExp" name="past_experience" placeholder="Write it here..."></textarea></label>
+    <label style="margin-top:14px">Past Experience<small>Teams you worked with, results, tournaments, anything that shows what you can do</small><textarea id="stExp" name="past_experience" maxlength="12000" placeholder="Write it here..."></textarea></label>
     <div role="alert" class="err" id="stErr"></div></div>
     <div class="actions"><button class="btn" id="staffSubmit" type="submit">SUBMIT APPLICATION</button></div>
   </section>
@@ -196,7 +205,7 @@ input.bad,select.bad,textarea.bad{border-color:#ff7a7a}textarea{min-height:150px
     <div class="done">
       <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46"/><path d="M30 52l14 14 27-30"/></svg>
       <h2>YOU’RE ON OUR RADAR.</h2>
-      <p>Thanks for applying! Our management team will review your application. If you qualify, we will message you directly on Discord within 5 days.</p>
+      <p>Thanks for applying! Our management team will review your application. If you qualify, we will message you directly on Discord.</p>
       <button class="btn" id="home" type="button">BACK TO WELCOME PAGE</button>
     </div>
   </section>
@@ -221,11 +230,11 @@ var PATHS=[
  {k:'squad',e:'many',t:'Applying as a Squad (Duo, Trio, or 5-Man)',d:'Bring your stack and we will look at all of you together.'}
 ];
 var ICON={
-exp:'<path d="M4 4l10 10M11 17l6-6M14 14l6 6M20 4L10 14M13 17L7 11M10 14L4 20"/>',
-jungle:'<path d="M12 2l3 10-3 2-3-2z"/><path d="M7 14h10M12 14v6M10 20h4"/>',
-mid:'<path d="M11 3c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7z"/><path d="M19 16v5M16.5 18.5h5"/>',
-gold:'<circle cx="12" cy="12" r="7"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>',
-roam:'<path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/>',
+exp:'<path d="m5 3 5 2 9 12-3 3L7 8zM5 14l5 6M4 21l3-3M19 3l-5 2-2 3M17 10l-2 3M19 14l-3 3M20 21l-3-3"/>',
+jungle:'<path d="M12 3c-3 4-4 8-2 12l2 6 2-6c2-4 1-8-2-12zM5 5c0 5 1 9 5 12M19 5c0 5-1 9-5 12M3 11c0 5 3 8 8 10M21 11c0 5-3 8-8 10"/>',
+mid:'<path d="m12 2 4 6-4 7-4-7zM5 9l-2 6 9 7 9-7-2-6M7 13l5 5 5-5M12 15v7"/>',
+gold:'<path d="M5 3c9 1 14 6 16 16M5 3l1 15 15 1M6 18 18 6M14 6h4v4M3 21l4-4"/>',
+roam:'<path d="m12 2 8 4v6c0 5-5 9-8 10-3-1-8-5-8-10V6zM8 8l4-2 4 2v4c0 3-2 5-4 6-2-1-4-3-4-6zM12 9v6M9 12h6"/>',
 star:'<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
 list:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 9h6M9 13h6M9 17h4"/>',
 one:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6 7-6s7 2 7 6"/>',
@@ -243,23 +252,23 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;
 
 function buildRoles(){
  $('roles').innerHTML=ROLES.map(function(r,i){
-  return '<button type="button" class="card" data-i="'+i+'"><img class="img" alt="'+r.hero+' portrait" src="'+portrait(r)+'"><div class="body"><h3><span class="ico">'+ico(r.e)+'</span>'+r.k+'</h3><p>'+r.d+'</p></div></button>';
+  return '<button type="button" class="card" aria-pressed="false" data-i="'+i+'"><img class="img" loading="lazy" width="320" height="400" alt="'+r.hero+' portrait" src="'+portrait(r)+'"><div class="body"><span class="role-badge">'+ico(r.e)+'</span><h3>'+r.k+'</h3><p>'+r.d+'</p></div></button>';
  }).join('');
  $('roles').onclick=function(e){var b=e.target.closest('.card');if(!b)return;S.role=ROLES[b.dataset.i].k;mark('roles',b);go(GOAL)};
 }
 function buildBig(id,list,key){
- $(id).innerHTML=list.map(function(o,i){return '<button type="button" class="card big" data-i="'+i+'"><span class="ic">'+ico(o.e)+'</span><h3>'+o.t+'</h3><p>'+o.d+'</p></button>'}).join('');
+ $(id).innerHTML=list.map(function(o,i){return '<button type="button" class="card big" aria-pressed="false" data-i="'+i+'"><span class="ic">'+ico(o.e)+'</span><h3>'+o.t+'</h3><p>'+o.d+'</p></button>'}).join('');
  [].forEach.call($(id).querySelectorAll('.card'),function(b,i){
   b.addEventListener('click',function(){S[key]=list[i].k;mark(id,b);route(key)});
  });
 }
-function mark(id,b){[].forEach.call($(id).children,function(c){c.classList.remove('sel')});b.classList.add('sel')}
+function mark(id,b){[].forEach.call($(id).children,function(c){c.classList.remove('sel');c.setAttribute('aria-pressed','false')});b.classList.add('sel');b.setAttribute('aria-pressed','true')}
 
 function renderPlayers(){
  var squad=S.path==='squad',n=squad?S.size:1;
  $('sizeWrap').style.display=squad?'block':'none';
  if(squad){
-  $('size').innerHTML=[['Duo',2],['Trio',3],['5-Man',5]].map(function(a){return '<button type="button" class="chip'+(S.size===a[1]?' sel':'')+'" data-n="'+a[1]+'">'+a[0]+'</button>'}).join('');
+  $('size').innerHTML=[['Duo',2],['Trio',3],['5-Man',5]].map(function(a){return '<button type="button" class="chip'+(S.size===a[1]?' sel':'')+'" aria-pressed="'+(S.size===a[1])+'" data-n="'+a[1]+'">'+a[0]+'</button>'}).join('');
   $('infoSub').textContent='Fill in every teammate. Same rules for all of you: double-check your IDs.';
  } else $('infoSub').textContent="Double-check your IDs. Wrong numbers mean we can't find you.";
  [].forEach.call($('players').querySelectorAll('.panel'),function(p,i){
@@ -268,7 +277,7 @@ function renderPlayers(){
   p.querySelector('.rolefld').style.display=squad?'':'none';
   var sel=p.querySelector('[data-f=role]');
   if(!sel.dataset.set||i===0){sel.value=(i===0?S.role:ROLES[i%5].k)||sel.value;sel.dataset.set=1}
-  if(i===0)sel.onchange=function(){S.role=sel.value}
+  if(i===0)sel.onchange=function(){S.role=sel.value;$('roles').querySelectorAll('.card').forEach(function(b,i){var selected=ROLES[i].k===S.role;b.classList.toggle('sel',selected);b.setAttribute('aria-pressed',String(selected))})}
  });
 }
 $('size').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;S.size=+b.dataset.n;renderPlayers()};
@@ -300,6 +309,7 @@ function sendToNetlify(){
  $('f_path').value=staff?'staff':(squad?'squad':'alone');
  $('f_size').value=staff?'':n;
  var data=new FormData(form);
+ if(!staff&&!squad)data.set('player1_lane',S.role||'');
  [].forEach.call($('players').querySelectorAll('.panel'),function(p,i){
   if(staff||i>=n)[].forEach.call(p.querySelectorAll('[name]'),function(el){data.delete(el.name)});
  });
@@ -349,7 +359,7 @@ function show(n,backward){
  $('stepCount').textContent=n===WELCOME?'FNATIC WOLF / RECRUITMENT':n===DONE?'THANK YOU FOR APPLYING':'STEP '+PROG[n]+' / '+(S.goal==='org'?'3':'4');
  var heading=el.querySelector('h2');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true})}
  $('back').classList.toggle('show',n!==WELCOME&&n!==DONE);
- window.scrollTo({top:0,behavior:'smooth'});
+ window.scrollTo({top:0,behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
 }
 function go(n){H.push(S.step);show(n,false)}
 function route(key){
